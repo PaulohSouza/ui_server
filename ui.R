@@ -45,7 +45,7 @@ library(Tratamentos.ad)
 #        ui - parte cliente do shiny                 #
 ######################################################
 ui <-navbarPage("FMT Análises", windowTitle = 'FMT Análises', collapsible = TRUE, theme = shinytheme("paper"),
-                useShinyalert(),
+             
                 tabPanel
                 (
                   ":",
@@ -1474,6 +1474,7 @@ ui <-navbarPage("FMT Análises", windowTitle = 'FMT Análises', collapsible = TR
                     )
                  )
                 ),
+                useShinyalert(force = TRUE),        
                   # FOOTER CREDITOS
                   hr(),
                   tags$div(align="center", valign="top", img(src='https://raw.githubusercontent.com/PaulohSouza/imagens/main/logo.png', width='160'), br()),
