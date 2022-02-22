@@ -9,10 +9,8 @@
 ######################################################
 
 library(shiny)
-library(shinyalert)
 library(ExpDes.pt)
 library(rmarkdown)
-library(labestData)
 library(plotly)
 library(xtable)
 library(shinythemes)
@@ -38,14 +36,12 @@ library(corrplot)
 library(RColorBrewer)
 library(highcharter)
 library(grDevices)
-library(Tratamentos.ad)
-
 
 ######################################################
 #        ui - parte cliente do shiny                 #
 ######################################################
 ui <-navbarPage("FMT Análises", windowTitle = 'FMT Análises', collapsible = TRUE, theme = shinytheme("paper"),
-             
+
                 tabPanel
                 (
                   ":",
@@ -127,9 +123,6 @@ ui <-navbarPage("FMT Análises", windowTitle = 'FMT Análises', collapsible = TR
                                            }
                                            if(typeMessage == 24){
                                            $("a:contains(Escolha da análise)").click();
-                                           }
-                                          if(typeMessage == 25){
-                                           $("a:contains(Q)").click();
                                            }
 
                                            });
@@ -336,7 +329,6 @@ ui <-navbarPage("FMT Análises", windowTitle = 'FMT Análises', collapsible = TR
                                                          'DQL' = "dql",
                                                          'Faixas' = "faixas",
                                                          'Fatorial duplo com um tratamento adicional DBC' = "fat2addbc",
-                                                         'Fatorial duplo com um tratamento adicional DBC com DUNNET' = "fat2addunnet",
                                                          'Fatorial duplo com um tratamento adicional DIC' = "fat2addic",
                                                          'Fatorial duplo em DBC' = "fat2dbc",
                                                          'Fatorial duplo em DIC' = "fat2dic",
@@ -784,23 +776,7 @@ ui <-navbarPage("FMT Análises", windowTitle = 'FMT Análises', collapsible = TR
                   br()
 
                 ),
-                
-                tabPanel(
-                  "Q",
-                  sidebarLayout(
-                    sidebarPanel(
-                      h5("Menu de opções em desenvolvimento \n
-                           Estou atualizando as opções, \n
-                           Anova já visivel")
-                    ),
-                    mainPanel(
-                      tabsetPanel(
-                        tabPanel("ANAVA",       verbatimTextOutput("anovatable15"))
-                        )
-                    )
-                  )
 
-                ),
 
                 ######################################################
                 # analise fat duplo com 1 trat adicional em DIC      #
@@ -1408,8 +1384,7 @@ ui <-navbarPage("FMT Análises", windowTitle = 'FMT Análises', collapsible = TR
                   br()
 
                 ),
-                
-                
+
                 ######################################################
                 #           Parcelas Subdivididas em DIC             #
                 ######################################################
@@ -1474,7 +1449,6 @@ ui <-navbarPage("FMT Análises", windowTitle = 'FMT Análises', collapsible = TR
                     )
                  )
                 ),
-                useShinyalert(force = TRUE),        
                   # FOOTER CREDITOS
                   hr(),
                   tags$div(align="center", valign="top", img(src='https://raw.githubusercontent.com/PaulohSouza/imagens/main/logo.png', width='160'), br()),
@@ -1483,7 +1457,6 @@ ui <-navbarPage("FMT Análises", windowTitle = 'FMT Análises', collapsible = TR
                   ),
                   br()
               )
-
-        )
+            )
 
 )

@@ -8,9 +8,6 @@
 
 server = function(input, output, session) {
 
-  shinyalert("Olá colega Pesquisador, Para melhorias, estou efetuando atualização da plataforma entre 22/02 á 24/02 - 
-            Algumas análises estaram desativadas neste período - [Análises paramétricas [DIC, DBC, FATORIAL continuam habilitadas]. Paulo")
-  
   observe({
     if(input$action > 0){
       print('7')
@@ -80,10 +77,6 @@ server = function(input, output, session) {
       if(input$deli=="psub2dic"){
         print('22')
         session$sendCustomMessage("myCallbackHandler", "22")
-      }
-      if(input$deli=="fat2addunnet"){
-        print('25')
-        session$sendCustomMessage("myCallbackHandler", "25")
       }
     }
   })
@@ -205,7 +198,7 @@ server = function(input, output, session) {
       return(df)
     }
 
-    if((input$deli=="fat2addbc")||(input$deli=="fat2addunnet")||(input$deli=="fat2addic")||(input$deli=="fat3addbc")||(input$deli=="fat3addic")){
+    if((input$deli=="fat2addbc")||(input$deli=="fat2addic")||(input$deli=="fat3addbc")||(input$deli=="fat3addic")){
       # busca dados no csv
       req(input$file2)
       # ao ler arquivos separados por ponto-e-virgula,
@@ -267,7 +260,8 @@ server = function(input, output, session) {
   # Gera menu do Select variável tratamento      #
   ################################################
   output$menu <- renderPrint({
-    if ((input$deli!="faixas")&&(input$deli!="fat2addbc")&&(input$deli!="fat2addunnet")&&(input$deli!="fat2addic")&&(input$deli!="fat2dbc")&&(input$deli!="fat2dic")&&(input$deli!="fat3addbc")&&(input$deli!="fat3addic")&&(input$deli!="fat3dbc")&&(input$deli!="fat3dic")&&(input$deli!="psub2dbc")&&(input$deli!="psub2dic")) {
+
+    if ((input$deli!="faixas")&&(input$deli!="fat2addbc")&&(input$deli!="fat2addic")&&(input$deli!="fat2dbc")&&(input$deli!="fat2dic")&&(input$deli!="fat3addbc")&&(input$deli!="fat3addic")&&(input$deli!="fat3dbc")&&(input$deli!="fat3dic")&&(input$deli!="psub2dbc")&&(input$deli!="psub2dic")) {
     dataset<-whichdataset()
 
     selectInput("trat", label = "Selecione a variável Tratamento",
@@ -293,7 +287,7 @@ server = function(input, output, session) {
   ################################################
   output$menu2<- renderPrint({
 
-    if((input$deli=="dbc")||(input$deli=="faixas")||(input$deli=="fat2addbc")||(input$deli=="fat2addunnet")||(input$deli=="fat2dbc")||(input$deli=="fat3addbc")||(input$deli=="fat3dbc")||(input$deli=="psub2dbc")){
+    if((input$deli=="dbc")||(input$deli=="faixas")||(input$deli=="fat2addbc")||(input$deli=="fat2dbc")||(input$deli=="fat3addbc")||(input$deli=="fat3dbc")||(input$deli=="psub2dbc")){
       dataset<-whichdataset()
 
       selectInput("bloc", label = "Selecione a variável Bloco",
@@ -359,7 +353,7 @@ server = function(input, output, session) {
   ################################################
   output$menu7<- renderPrint({
 
-    if((input$deli=="faixas")||(input$deli=="fat2addbc")||(input$deli=="fat2addunnet")||(input$deli=="fat2addic")||(input$deli=="fat2dbc")||(input$deli=="fat2dic")||(input$deli=="fat3addbc")||(input$deli=="fat3addic")||(input$deli=="fat3dbc")||(input$deli=="fat3dic")||(input$deli=="psub2dbc")||(input$deli=="psub2dic")){
+    if((input$deli=="faixas")||(input$deli=="fat2addbc")||(input$deli=="fat2addic")||(input$deli=="fat2dbc")||(input$deli=="fat2dic")||(input$deli=="fat3addbc")||(input$deli=="fat3addic")||(input$deli=="fat3dbc")||(input$deli=="fat3dic")||(input$deli=="psub2dbc")||(input$deli=="psub2dic")){
       dataset<-whichdataset()
 
       selectInput("fator1", label = "Selecione a variável Fator1",
@@ -372,7 +366,7 @@ server = function(input, output, session) {
   ################################################
   output$menu8<- renderPrint({
 
-    if((input$deli=="faixas")||(input$deli=="fat2addbc")||(input$deli=="fat2addunnet")||(input$deli=="fat2addic")||(input$deli=="fat2dbc")||(input$deli=="fat2dic")||(input$deli=="fat3addbc")||(input$deli=="fat3addic")||(input$deli=="fat3dbc")||(input$deli=="fat3dic")||(input$deli=="psub2dbc")||(input$deli=="psub2dic")){
+    if((input$deli=="faixas")||(input$deli=="fat2addbc")||(input$deli=="fat2addic")||(input$deli=="fat2dbc")||(input$deli=="fat2dic")||(input$deli=="fat3addbc")||(input$deli=="fat3addic")||(input$deli=="fat3dbc")||(input$deli=="fat3dic")||(input$deli=="psub2dbc")||(input$deli=="psub2dic")){
       dataset<-whichdataset()
 
       selectInput("fator2", label = "Selecione a variável Fator2",
@@ -399,7 +393,7 @@ server = function(input, output, session) {
   ################################################
   output$menu9<- renderPrint({
 
-    if((input$deli!="faixas")&&(input$deli!="fat2addbc")&&(input$deli!="fat2addunnet")&&(input$deli!="fat2addic")&&(input$deli!="fat2dbc")&&(input$deli!="fat2dic")&&(input$deli!="fat3addbc")&&(input$deli!="fat3addic")&&(input$deli!="fat3dbc")&&(input$deli!="fat3dic")&&(input$deli!="psub2dbc")&&(input$deli!="psub2dic")){
+    if((input$deli!="faixas")&&(input$deli!="fat2addbc")&&(input$deli!="fat2addic")&&(input$deli!="fat2dbc")&&(input$deli!="fat2dic")&&(input$deli!="fat3addbc")&&(input$deli!="fat3addic")&&(input$deli!="fat3dbc")&&(input$deli!="fat3dic")&&(input$deli!="psub2dbc")&&(input$deli!="psub2dic")){
 
       radioButtons("quali", "A variável Tratamento é:",
                    choices = c("Qualitativa" = "TRUE",
@@ -413,7 +407,7 @@ server = function(input, output, session) {
   ################################################
   output$menu10<- renderPrint({
 
-    if((input$deli=="faixas")||(input$deli=="fat2addbc")||(input$deli=="fat2addunnet")||(input$deli=="fat2addic")||(input$deli=="fat2dbc")||(input$deli=="fat2dic")||(input$deli=="fat3addbc")||(input$deli=="fat3addic")||(input$deli=="fat3dbc")||(input$deli=="fat3dic")||(input$deli=="psub2dbc")||(input$deli=="psub2dic")){
+    if((input$deli=="faixas")||(input$deli=="fat2addbc")||(input$deli=="fat2addic")||(input$deli=="fat2dbc")||(input$deli=="fat2dic")||(input$deli=="fat3addbc")||(input$deli=="fat3addic")||(input$deli=="fat3dbc")||(input$deli=="fat3dic")||(input$deli=="psub2dbc")||(input$deli=="psub2dic")){
 
       radioButtons("quali1", "A variável Fator1 é:",
                    choices = c('Qualitativa' = "TRUE",
@@ -427,7 +421,7 @@ server = function(input, output, session) {
   ################################################
   output$menu11<- renderPrint({
 
-    if((input$deli=="faixas")||(input$deli=="fat2addbc")||(input$deli=="fat2addunnet")||(input$deli=="fat2addic")||(input$deli=="fat2dbc")||(input$deli=="fat2dic")||(input$deli=="fat3addbc")||(input$deli=="fat3addic")||(input$deli=="fat3dbc")||(input$deli=="fat3dic")||(input$deli=="psub2dbc")||(input$deli=="psub2dic")){
+    if((input$deli=="faixas")||(input$deli=="fat2addbc")||(input$deli=="fat2addic")||(input$deli=="fat2dbc")||(input$deli=="fat2dic")||(input$deli=="fat3addbc")||(input$deli=="fat3addic")||(input$deli=="fat3dbc")||(input$deli=="fat3dic")||(input$deli=="psub2dbc")||(input$deli=="psub2dic")){
 
       radioButtons("quali2", "A variável Fator2 é:",
                    choices = c('Qualitativa' = "TRUE",
@@ -493,7 +487,7 @@ server = function(input, output, session) {
   ################################################
   output$menu18<- renderPrint({
 
-    if((input$deli=="fat2addbc")||(input$deli=="fat2addic")||(input$deli=="fat2addunnet")||(input$deli=="fat3addbc")||(input$deli=="fat3addic")){
+    if((input$deli=="fat2addbc")||(input$deli=="fat2addic")||(input$deli=="fat3addbc")||(input$deli=="fat3addic")){
       dataset<-whichdataset()
 
       selectInput("respad", label = "Variável resposta do Trat adcional",
@@ -738,39 +732,6 @@ server = function(input, output, session) {
     fat2.ad.dbc(fat1, fat2, blocos, respos, respAd, quali = c(input$quali1, input$quali2), mcomp=input$mcomp4, sigT=sigT4, sigF=sigF4)
 
   })
-
-  #######################################################
-  # Tabela ANOVA fat duplo com 1 trat adicional em DBC+DUNNET  #
-  #######################################################
-  output$anovatable15 <- renderPrint({
-
-    dataset=whichdataset()
-    respo<-dataset[input$resp]
-    respos <- unlist(respo)
-    bloco<-dataset[input$bloc]
-    blocos <- unlist(bloco)
-    fat<-dataset[input$fator1]
-    fat1 <- unlist(fat)
-    fato<-dataset[input$fator2]
-    fat2 <- unlist(fato)
-
-    respadi1<-dataset[input$respad]
-    adicional = respadi1[!is.na(respadi1)]
-    respadi<-dataset[input$respad]
-    respAd <- unlist(adicional)
-
-    sigT4 <- as.numeric(input$sigT4)
-    sigF4 <- as.numeric(input$sigF4)
-
-    cat("Variável resposta utilizada: ")
-    resposta1=names(respo)
-    cat(resposta1)
-    cat("\n")
-    dfinal <- data.frame(respadi1, fat, fat2, bloco, respo)
-    cat("Resultado de análise de variância e desdobramento por Dunnet \n\n")
-    fatorial2.ad.dbc(Dados = dfinal, Protegido = FALSE, alfa = 0.05, quali = c(input$quali1, input$quali2),verbose = TRUE)
-  })
-
 
   #######################################################
   # Tabela ANOVA fat duplo com 1 trat adicional em DIC  #
