@@ -11,6 +11,7 @@
 library(shiny)
 library(ExpDes.pt)
 library(rmarkdown)
+library(labestData)
 library(plotly)
 library(xtable)
 library(shinythemes)
